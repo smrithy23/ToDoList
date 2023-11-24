@@ -73,6 +73,7 @@ def main():
         #To quit
         elif (choice == 8):
             print("Goodbye")
+            list_obj.exitList()
             flag = False
         else:
             print("Invalid Input. Please try again.")
