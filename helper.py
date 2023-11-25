@@ -1,5 +1,6 @@
 import todofunctions
 
+#Helper allowed me to debug and test my code
 #Displays menu to user
 def display_options():
     print("\nChoose an option:")
@@ -8,8 +9,8 @@ def display_options():
     print("3. Remove the task") #DONE
     print("4. Change the description of an pre-exsisting task")#DONE
     print("5. Sort list by priority") 
-    print("6. Save task list")
-    print("7. Load pre-existing list")
+    print("6. Save task list")#DONE
+    print("7. Load pre-existing list")#DONE
     print("8. Exit")#DONE
     choice = int(input('\nPlease enter your choice (1-8):'))
     return choice
@@ -59,7 +60,8 @@ def main():
             choice = display_options()
 
         elif (choice == 5):
-            print("Sorting list by priority...") #needs to be implemented
+            print("Sorting list by priority high to low...")
+            list_obj.sortList()
             choice = display_options()
 
         elif (choice == 6):

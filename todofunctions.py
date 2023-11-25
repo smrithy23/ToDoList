@@ -59,6 +59,31 @@ class todoList:
 
 
     #Sort tasks by priority
+    def sortList(self):
+        numoftasks = len(self.tasks.keys())
+        if(numoftasks == 0):
+            print("Task list is empty, cannot be sorted")
+        else:
+            tasklist = []
+            for i in range(numoftasks):
+                temp = []
+                taskname = self.tasks[i+1]['Task']
+                pr = self.tasks[i+1]['Priority']
+                temp.append(taskname)
+                temp.append(pr)
+                tasklist.append(temp)
+            
+            self.highlow(tasklist)
+            
+    #prints for high to low, but high is 1, low is 3  
+    def highlow(self,tasklist):
+        size = len(tasklist)
+        for i in range(size - 1):
+            for j in range(0, size - i - 1):
+                if tasklist[j][1] > tasklist[j + 1][1]:
+                    tasklist[j], tasklist[j + 1] = tasklist[j + 1], tasklist[j]
+        for c in range(size):
+            print(tasklist[c])
 
     #Save task
     def saveList(self,filename):
