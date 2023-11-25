@@ -19,28 +19,34 @@ if db.is_connected():
     print("\n")
 
   #Add task
-  def add_task(self,taskid, task, completed, priority):
+  def add_task(taskid, task, completed, priority):
     query = "INSERT INTO `mydatabase`.`tasks` (`taskID`, `description`, `completed`, `priority`) VALUES (%s, %s, %s, %s)"
     value = (taskid,task,completed,priority)
     cursor.execute(query,value)
     db.commit()
 
   #Mark task as completed
-  def mark_task(self,taskid,completed):
+  def mark_task(taskid,completed):
     query = "UPDATE `mydatabase`.`tasks` SET `completed` = %s WHERE (`taskID` = %s)"
     value = (completed,taskid)
     cursor.execute(query,value)
     db.commit()
 
   #deleting task from database
-  def del_task(self,taskid):
-    query = "DELETE FROM `mydatabase`.`tasks` WHERE 'taskID' = %s"
+  def del_task(taskid):
+    query = "DELETE FROM `mydatabase`.`tasks` WHERE (`taskID` = %s)"
     value = (taskid)
+    cursor.execute(query,value)
+    db.commit()
+
+  def edit_task(taskid,taskName):
+    query = "UPDATE `mydatabase`.`tasks` SET `description` = %s WHERE (`taskID` = %s)"
+    value = (taskName,taskid)
     cursor.execute(query,value)
     db.commit()
     
   #exit application should clear the table
-  def exit(self):
+  def exit():
     query = "TRUNCATE TABLE mydatabase.tasks"
     cursor.execute(query)
     db.commit()

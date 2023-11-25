@@ -63,11 +63,17 @@ def main():
             choice = display_options()
 
         elif (choice == 6):
-            print("Saving task to file...") #needs to be implemented
+            print("Saving task to a txt file...") 
+            filename = input("Enter the name of the file (without .txt):")
+            filename = filename + ".txt"
+            list_obj.saveList(filename)
             choice = display_options()
 
         elif (choice == 7):
-            print("Loading task to file..")#needs to be implemented
+            filename = input("Enter the name of the file (without .txt):")
+            filename = filename + ".txt"
+            print("Loading task to txt file..")
+            list_obj.loadList(filename)
             choice = display_options()
 
         #To quit
