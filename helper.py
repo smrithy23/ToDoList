@@ -8,7 +8,7 @@ def display_options():
     print("2. Mark task as completed") #DONE
     print("3. Remove the task") #DONE
     print("4. Change the description of an pre-exsisting task")#DONE
-    print("5. Sort list by priority") 
+    print("5. Sort list by priority") #DONE
     print("6. Save task list")#DONE
     print("7. Load pre-existing list")#DONE
     print("8. Exit")#DONE

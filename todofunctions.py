@@ -8,6 +8,12 @@ class todoList:
     #to add a task
     def add_task(self,task,priority):
         numtasks = len(self.tasks) + 1
+
+        for k,v in self.tasks.items():
+            key = k
+            if key == numtasks:
+                numtasks = numtasks + 1
+
         completed = False
         self.tasks[numtasks] = {'Task':task, 'Priority': priority, 'Completed':False }
         print("Task added sucessfully")
@@ -43,7 +49,7 @@ class todoList:
     #remove task
     def del_task(self,taskid):
         if taskid in self.tasks:
-            #database.del_task(self,taskid) - doesn't work
+            #database.del_task(taskid) #doesn't work
             self.tasks.pop(taskid)
             print("Task was successfully deleted.")
         else:

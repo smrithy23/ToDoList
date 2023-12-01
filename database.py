@@ -34,7 +34,7 @@ if db.is_connected():
 
   #deleting task from database
   def del_task(taskid):
-    query = "DELETE FROM `mydatabase`.`tasks` WHERE (`taskID` = %s)"
+    query = "DELETE FROM `mydatabase`.`tasks` WHERE `taskID` = %s"
     value = (taskid)
     cursor.execute(query,value)
     db.commit()

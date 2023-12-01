@@ -12,4 +12,9 @@ The goal of the project is create a user-friendly application to allow users to 
 
 A database was created to keep track of the tasks using MySQL
 
-To run this application, run helper.py
+### To run
+Run helper.py to run the application
+
+#### Things not implemented
+Delete query does not work for database
+Tkinter was not use for UI
