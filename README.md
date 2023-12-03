@@ -16,5 +16,5 @@ A database was created to keep track of the tasks using MySQL
 Run helper.py to run the application
 
 ## Things not implemented
-Delete query does not work for database
-Tkinter was not use for UI
+* Delete query does not work for database
+* Tkinter was not use for UI
