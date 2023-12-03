@@ -39,6 +39,7 @@ if db.is_connected():
     cursor.execute(query,value)
     db.commit()
 
+#To update the description of an existin task
   def edit_task(taskid,taskName):
     query = "UPDATE `mydatabase`.`tasks` SET `description` = %s WHERE (`taskID` = %s)"
     value = (taskName,taskid)

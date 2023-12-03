@@ -53,10 +53,14 @@ def main():
         
         #Deleting a task
         elif (choice == 3):
-            list_obj.display_list()
-            taskid = int(input("Enter the task number you would like to delete:"))
-            list_obj.del_task(taskid)
-            list_obj.display_list()
+            if (list_obj.sizeList() == 0):
+                print("List is empty cannot perform this function")
+            else:
+                list_obj.display_list()
+                taskid = int(input("Enter the task number you would like to delete:"))
+                list_obj.del_task(taskid)
+                list_obj.display_list()
+
             choice = display_options()
         
         #Editing an existing task

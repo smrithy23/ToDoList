@@ -159,6 +159,12 @@ class todoList:
     def exitList(self):
         database.exit()
 
+    #To get the size of the list
+    def sizeList(self):
+        size = len(self.tasks)
+        return size
+
+
     #To string 
     def __str__(self):
         return self.tasks
