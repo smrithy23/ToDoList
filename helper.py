@@ -1,7 +1,9 @@
 import todofunctions
 
-#Helper allowed me to debug and test my code
-#Displays menu to user
+# This file allows me to interact with the user and assisted me in debugging
+# Author: Smrithy Mudavangattil Sajan
+
+# Displays menu to user
 def display_options():
     print("\nChoose an option:")
     print("1. Add a task") #DONE
@@ -15,13 +17,17 @@ def display_options():
     choice = int(input('\nPlease enter your choice (1-8):'))
     return choice
 
+
 def main():
     list_obj = todofunctions.todoList()
     print("Welcome")
     choice = display_options()
     flag = True
 
+    #Flag is False when user selects option 8
     while (flag != False):
+
+        #Adding tasks
         if(choice == 1):
             taskName = input('Enter the name of the task:')
             print("Priority options:")
@@ -37,13 +43,15 @@ def main():
             list_obj.display_list()
             choice = display_options()
 
+        #Marking the task as completed
         elif (choice == 2):
             list_obj.display_list()
             taskid = int(input("Enter the task number you would like to mark as completed:"))
             list_obj.mark_task(taskid)
-            list_obj.display_list() # debug
+            list_obj.display_list() 
             choice = display_options()
         
+        #Deleting a task
         elif (choice == 3):
             list_obj.display_list()
             taskid = int(input("Enter the task number you would like to delete:"))
@@ -51,6 +59,7 @@ def main():
             list_obj.display_list()
             choice = display_options()
         
+        #Editing an existing task
         elif (choice == 4):
             list_obj.display_list()
             taskid = int(input("Enter the task number you would like to change the description:"))
@@ -59,11 +68,13 @@ def main():
             list_obj.display_list()
             choice = display_options()
 
+        #Temporily sorting a task from high to low
         elif (choice == 5):
             print("Sorting list by priority high to low...")
             list_obj.sortList()
             choice = display_options()
 
+        #Saving to a file
         elif (choice == 6):
             print("Saving task to a txt file...") 
             filename = input("Enter the name of the file (without .txt):")
@@ -71,6 +82,7 @@ def main():
             list_obj.saveList(filename)
             choice = display_options()
 
+        #Loading from an existing file
         elif (choice == 7):
             filename = input("Enter the name of the file (without .txt):")
             filename = filename + ".txt"
@@ -78,11 +90,13 @@ def main():
             list_obj.loadList(filename)
             choice = display_options()
 
-        #To quit
+        #To quit or leave the program, this will also delete all the rows from the table
         elif (choice == 8):
             print("Goodbye")
             list_obj.exitList()
             flag = False
+
+        #if the user enters anything other than 1-8
         else:
             print("Invalid Input. Please try again.")
             choice = display_options()

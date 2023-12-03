@@ -13,8 +13,11 @@ The goal of the project is create a user-friendly application to allow users to 
 A database was created to keep track of the tasks using MySQL
 
 ## To run
-Run helper.py to run the application
+1. Open helper.py
+2. Go to run menu and click run
 
 ## Things not implemented
-* Delete query does not work for database
-* Tkinter was not use for UI
+* Delete query does not work for deleting the task from the table
+* Tkinter was not use for UI - needs to be implemented
+* Allow users to add due dates to the task
+

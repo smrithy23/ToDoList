@@ -1,30 +1,36 @@
 import database
 
+# Implementation of the functions involve in creating a to-do list
+# Author: Smrithy Mudavangattil Sajan
+
 class todoList:
     def __init__(self):
         #dictionary to keep track of tasks
         self.tasks = {} 
    
-    #to add a task
+    #To add a task
     def add_task(self,task,priority):
         numtasks = len(self.tasks) + 1
-
+        
+        #To ensure the id is not repeated and is unique even in the database
         for k,v in self.tasks.items():
             key = k
             if key == numtasks:
                 numtasks = numtasks + 1
-
+        
+        #when the user adds a task for the first time, 'Completed' will be set to False
         completed = False
         self.tasks[numtasks] = {'Task':task, 'Priority': priority, 'Completed':False }
         print("Task added sucessfully")
         database.add_task(numtasks,task,completed,priority)
 
+    #To add tasks to the dictionary when loading it from an existing file
     def add_task2(self,id,task,priority,completed):
         self.tasks[id] = {'Task':task, 'Priority': priority, 'Completed':completed }
         print("Task added sucessfully")
         database.add_task(id,task,completed,priority)
 
-    #displays the current list
+    #displays the current list by iterating through the key-value pairs in the nested dictionary 
     def display_list(self):
         print("\nTo-do list")
         print("----------")
@@ -36,8 +42,10 @@ class todoList:
 
             print("\n")
     
-    #mark as completed
+    #To mark the task as completed
     def mark_task(self,taskid):
+
+        #Only if the taskid exists in the dictionary, it will be set to TRUE
         if taskid in self.tasks:
             self.tasks[taskid]['Completed'] = True
             print("Task has been masked as completed.")
@@ -46,7 +54,7 @@ class todoList:
         else:
             print("Invalid task number")
 
-    #remove task
+    #To remove task
     def del_task(self,taskid):
         if taskid in self.tasks:
             #database.del_task(taskid) #doesn't work
@@ -55,7 +63,7 @@ class todoList:
         else:
             print("Invalid task")
 
-    #Edit task
+    #Editing the task name/description of an existing task
     def edit_task(self,taskid,taskName):
         if taskid in self.tasks:
             self.tasks[taskid]['Task'] = taskName
@@ -91,7 +99,7 @@ class todoList:
         for c in range(size):
             print(tasklist[c])
 
-    #Save task
+    #Save the list to a .txt file
     def saveList(self,filename):
         try:
             f = open(filename,"w")
@@ -109,7 +117,7 @@ class todoList:
         except FileNotFoundError:
             print("File not found")
 
-    #Load task
+    #Loading the list from a txt file
     def loadList(self,filename):
         try:
             f = open(filename,"r")
