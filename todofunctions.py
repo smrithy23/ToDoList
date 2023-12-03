@@ -134,16 +134,16 @@ class todoList:
                             c = b + 1
 
                             if 'Completed:' in list[c]:
-                                Toftest = 0
-                                Tof = ''
+                                Toftest = True
+                                ToF = ''
                                 (co,ToF) = list[c].split(':')
 
-                                if Tof == 'True':
+                                if ToF == 'True':
                                     Toftest = True
                                 else:
                                     Toftest = False
 
-                                self.add_task2(id,tkname,prNo,Toftest)
+                                self.add_task2(int(id),tkname,prNo,Toftest)
         except FileNotFoundError:
             print("File Not Found")
 
