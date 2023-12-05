@@ -17,6 +17,7 @@ A database was created to keep track of the tasks using MySQL.
 2. Go to run menu and click run
 
 ## Things not implemented
+* Database is created locally, didn't have time to host it on AWS
 * Delete query does not work for deleting the task from the table
 * Tkinter was not use for UI - needs to be implemented
 * Allow users to add due dates to the task
